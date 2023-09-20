@@ -11,7 +11,8 @@ To continuously calculate the real-time speed of the vehicles, we employ a chang
 This project aims to harness the power of vehicle telemetry data to monitor and respond to critical events in real time.
 The project-architecture diagram looks like :
 
-![vehicle_telemetry_project](https://github.com/Sarang823/LiveVehicleTelemetryCruise/assets/133379507/5aaac660-e1e8-4ae9-95af-b53dbba9b917)
+![vehicle_telemetry_demo](https://github.com/Sarang823/LiveVehicleTelemetryCruise/assets/133379507/9739ea12-3581-4135-a92d-c2590874fc44)
+
 
 
 ## Step-by-Step Approach:
