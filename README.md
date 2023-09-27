@@ -32,7 +32,7 @@ To initiate all containers, use the command: **"docker-compose up -d."**
 
 
 Configure the connector settings. You can utilize various tools such as Postman or Visual Studio Code (VSCode). Here, we use the Thunderclient extension within VSCode.
-Make an API call to the connector's API endpoint **"https://localhost:8083/connectors."** To set up a new connector, send a POST request with the connector definition payload in the request body. Refer to the "source-productcategory-connector.json" file for the code. Make sure to update the database IP in the code to match your **device's IP address**.
+Make an API call to the connector's API endpoint **"https://localhost:8083/connectors."** To set up a new connector, send a POST request with the connector definition payload in the request body. Refer to the "source-productcategory-connector.json" file for the code. Make sure to update the database IP in the code to match your **device's IP address**. For the above process refer to **source-productcategory-connector.json** file.
 
 
 After completing the setup, access "localhost:9000" to create the Kafka cluster.
