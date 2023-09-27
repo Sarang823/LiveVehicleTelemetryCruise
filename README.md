@@ -19,12 +19,18 @@ The project-architecture diagram looks like :
 
 ### A] Initial Setup:
 
-Connect the RTD-Denver API to PostgreSQL via the Debezium Connector, and subsequently, route data to Kafka Connect, MongoDB, and Telegram Alerts, as well as S3.
+Connect the RTD-Denver API to PostgreSQL. And via the Debezium Connector and Kafka-Conect subsequently, route data to Kafka cluster, and then to the destinations like: MongoDB, and Telegram Alerts, as well as S3.
+**Note** : To effectively use the api-key first sign up to the **https://notifications.rtd-denver.com/s/login/SelfRegister** and use those credentials in the code. for the code refer : **source_data_from_api.ipynb**
+
 Begin by setting up the Debezium Kafka Connector and Kafka Connect within a Docker environment. Refer to the **"docker-compose.yml"** file for the necessary configuration.
 Note: Inside the Docker container, **Kafka uses port 9092, while outside the Docker, it employs port 29092.**
 To initiate all containers, use the command: **"docker-compose up -d."**
+
+
 Configure the connector settings. You can utilize various tools such as Postman or Visual Studio Code (VSCode). Here, we use the Thunderclient extension within VSCode.
-Make an API call to the connector's API endpoint "https://localhost:8083/connectors." To set up a new connector, send a POST request with the connector definition payload in the request body. Refer to the "source-productcategory-connector.json" file for the code. Make sure to update the database IP in the code to match your **device's IP address**.
+Make an API call to the connector's API endpoint **"https://localhost:8083/connectors."** To set up a new connector, send a POST request with the connector definition payload in the request body. Refer to the "source-productcategory-connector.json" file for the code. Make sure to update the database IP in the code to match your **device's IP address**.
+
+
 After completing the setup, access "localhost:9000" to create the Kafka cluster.
 Adjust the PostgreSQL **"wal_level" setting to "logical"** in the postgresql.conf file and restart the PostgreSQL service on the server. Logical replication operates using a publish-subscribe model.
 ### B] Steps:
@@ -34,5 +40,7 @@ Adjust the PostgreSQL **"wal_level" setting to "logical"** in the postgresql.con
 Note: To utilize the **"gtfs_realtime_pb2"** class and its methods, download and place the **"gtfs_realtime_pb2.py"** file in the project location of your IDE or Jupyter Notebook for importing the class. The file is provided with your project resources.
 
 2.For Kafka Connect processing, sending Telegram alerts, and storing data in S3 and MongoDB, consult the **"final_consumer.ipynb"** file for the relevant code.
+
+3. For telegram alerts, create a telegram bot by visiting *'@botfather'*
 
 This step-by-step approach outlines the setup and execution of the project's data processing and analysis pipeline, connecting various components to achieve the desired outcomes.
